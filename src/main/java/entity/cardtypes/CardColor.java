@@ -1,4 +1,4 @@
-package entity;
+package entity.cardtypes;
 
 public enum CardColor {
 

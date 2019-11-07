@@ -1,18 +1,15 @@
 package entity;
 
-public enum Card {
+import entity.cardtypes.CardColor;
+import entity.cardtypes.CardType;
 
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
-    TEN,
-    JACK,
-    QUEEN,
-    KING,
-    ACE
+public class Card {
+
+    private final CardColor cardColor;
+    private final CardType cardType;
+
+    public Card(CardColor cardColor, CardType cardType) {
+        this.cardColor = cardColor;
+        this.cardType = cardType;
+    }
 }
