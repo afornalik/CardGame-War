@@ -10,6 +10,10 @@ public abstract class Deck implements Shuffable {
 
     private List<Card> deckOfCards;
 
+    public Deck(List<Card> deckOfCards) {
+        this.deckOfCards = deckOfCards;
+    }
+
     public void shuffleCard() {
         Collections.shuffle(deckOfCards);
     }
