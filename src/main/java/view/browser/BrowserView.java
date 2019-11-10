@@ -1,11 +1,8 @@
 package view.browser;
 
 import view.View;
-import view.service.IUserInputData;
-import view.service.IUserOutputData;
-import view.service.IUserOutputMesseges;
 
-public class BrowserView extends View implements IUserInputData, IUserOutputData, IUserOutputMesseges {
+public class BrowserView extends View  {
 
 
     @Override
@@ -14,5 +11,10 @@ public class BrowserView extends View implements IUserInputData, IUserOutputData
 
     @Override
     public void writeRules() {
+    }
+
+    @Override
+    public int setupNumbersOfPlayers() {
+        return 0;
     }
 }

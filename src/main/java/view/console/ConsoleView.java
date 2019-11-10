@@ -1,12 +1,13 @@
 package view.console;
 
 import view.View;
-import view.service.IUserInputData;
-import view.service.IUserOutputData;
-import view.service.IUserOutputMesseges;
+
+import java.util.Scanner;
 
 
-public class ConsoleView extends View implements IUserInputData, IUserOutputData, IUserOutputMesseges {
+public class ConsoleView extends View  {
+
+    private Scanner inputData = new Scanner(System.in);
 
     @Override
     public void writeGreeting() {
@@ -22,5 +23,11 @@ public class ConsoleView extends View implements IUserInputData, IUserOutputData
                 "\tHighest card win and owner of this card takes all cards. \n" +
                 "\tGame ends when players will have not any cards in theirs hand, \n" +
                 "\tand the winner is one who gathered highest amount of cards. ");
+    }
+
+    @Override
+    public int setupNumbersOfPlayers() {
+        System.out.println("\n\tSetup number of players (2-4) : ");
+        return inputData.nextInt();
     }
 }

@@ -6,7 +6,11 @@ import service.player.IPlayerInitializationService;
 public class PlayerInitialization implements IPlayerInitializationService {
     
     @Override
-    public Player[] initializePlayers() {
-        return new Player[0];
+    public Player[] initializePlayers(int numberOfPlayers) {
+        Player[] players = new Player[numberOfPlayers];
+        for(int i = 0 ; i< numberOfPlayers ; i++){
+            players[i] = new Player();
+        }
+        return players;
     }
 }
