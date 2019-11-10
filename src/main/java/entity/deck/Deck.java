@@ -1,13 +1,13 @@
 package entity.deck;
 
 import entity.cardtypes.Card;
-import service.deck.IStandardDeckService;
+import service.deck.IDeckStandardService;
 
 
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Deck implements IStandardDeckService {
+public abstract class Deck implements IDeckStandardService {
 
     private List<Card> deckOfCards;
 

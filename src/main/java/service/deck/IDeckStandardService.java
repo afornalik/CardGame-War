@@ -1,6 +1,6 @@
 package service.deck;
 
-public interface IStandardDeckService {
+public interface IDeckStandardService {
 
     void shuffleCard();
 }

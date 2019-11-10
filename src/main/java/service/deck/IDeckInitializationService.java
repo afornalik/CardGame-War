@@ -1,6 +1,6 @@
 package service.deck;
 
-public interface IInitialDeckService {
+public interface IDeckInitializationService {
 
    void createFullDeckOfCards();
 
