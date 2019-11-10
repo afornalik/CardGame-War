@@ -4,9 +4,9 @@ import entity.player.Player;
 import entity.deck.FullDeck;
 
 
-public class FullDeckInitialState extends FullDeck {
+public class FullDeckInitialization extends FullDeck {
 
-    public FullDeckInitialState( Player[] players) {
+    public FullDeckInitialization(Player[] players) {
         super(players);
     }
 
