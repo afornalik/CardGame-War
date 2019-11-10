@@ -26,7 +26,7 @@ public class FullDeckInitialization implements IDeckInitializationService {
 
 
     @Override
-    public Deck initializeDeckOfCards() {
+    public void initializeDeckOfCards() {
         fullDeck = new FullDeck();
         List<Card> cards = new ArrayList<>();
         for (CardType cardType : CardType.values()) {
@@ -36,7 +36,6 @@ public class FullDeckInitialization implements IDeckInitializationService {
         }
         fullDeck.setDeckOfCards(cards);
         fullDeck.shuffleCard();
-        return fullDeck;
     }
 
     @Override
