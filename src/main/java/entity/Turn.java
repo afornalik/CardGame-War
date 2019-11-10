@@ -1,4 +1,4 @@
-package entity.turn;
+package entity;
 
 public abstract class Turn {
 

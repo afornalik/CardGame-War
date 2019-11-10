@@ -1,6 +1,6 @@
 package service.game;
 
-import entity.game.Game;
+import entity.Game;
 
 public interface IGameInitializationService {
 

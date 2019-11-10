@@ -1,6 +1,6 @@
-package entity.player.initial;
+package utils.player.initial;
 
-import entity.player.Player;
+import entity.Player;
 import service.player.IPlayerInitializationService;
 
 public class PlayerInitialization implements IPlayerInitializationService {

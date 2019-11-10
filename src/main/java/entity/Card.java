@@ -1,4 +1,7 @@
-package entity.cardtypes;
+package entity;
+
+import entity.cardtypes.CardColor;
+import entity.cardtypes.CardType;
 
 public class Card {
 

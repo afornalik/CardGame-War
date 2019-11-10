@@ -1,8 +1,10 @@
 package service.deck;
 
+import entity.Deck;
+
 public interface IDeckInitializationService {
 
-   void initializeDeckOfCards();
+   Deck initializeDeckOfCards();
 
    void splitDeckAmongPlayers();
 }

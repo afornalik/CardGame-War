@@ -1,6 +1,5 @@
-package entity.deck;
+package entity;
 
-import entity.cardtypes.Card;
 import service.deck.IDeckStandardService;
 
 

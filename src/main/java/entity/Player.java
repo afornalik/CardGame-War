@@ -1,7 +1,7 @@
-package entity.player;
+package entity;
 
-import entity.deck.player.PlayerDeckInHand;
-import entity.deck.player.PlayerDeckWinCard;
+import utils.deck.player.PlayerDeckInHand;
+import utils.deck.player.PlayerDeckWinCard;
 
 public class Player {
 

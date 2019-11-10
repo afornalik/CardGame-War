@@ -1,6 +1,6 @@
 package service.player;
 
-import entity.player.Player;
+import entity.Player;
 
 public interface IPlayerInitializationService {
 
