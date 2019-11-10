@@ -2,7 +2,7 @@ package service.deck;
 
 public interface IDeckInitializationService {
 
-   void createFullDeckOfCards();
+   void initializeDeckOfCards();
 
-   void splitFullDeckAmongPlayers();
+   void splitDeckAmongPlayers();
 }
