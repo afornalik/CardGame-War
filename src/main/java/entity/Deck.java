@@ -14,6 +14,10 @@ public abstract class Deck implements IDeckStandardService {
         return deckOfCards;
     }
 
+    public void setDeckOfCards(List<Card> deckOfCards) {
+        this.deckOfCards = deckOfCards;
+    }
+
     @Override
     public void shuffleCard() {
         Collections.shuffle(deckOfCards);

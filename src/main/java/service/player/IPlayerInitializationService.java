@@ -4,5 +4,7 @@ import entity.Player;
 
 public interface IPlayerInitializationService {
 
-    Player[] initializePlayers(int numberOfPlayers);
+    Player[] initializePlayers();
+
+    int getNumberOfPlayers();
 }

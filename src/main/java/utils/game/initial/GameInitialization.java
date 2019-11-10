@@ -29,7 +29,7 @@ public class GameInitialization implements IGameInitializationService {
         view.writeRules();
 
         Deck deck = iDeckInitializationService.initializeDeckOfCards();
-        Player[] players = iPlayerInitializationService.initializePlayers(view.setupNumbersOfPlayers());
+        Player[] players = iPlayerInitializationService.initializePlayers();
         return null;
     }
 }
