@@ -2,12 +2,12 @@ package entity.deck;
 
 import entity.Player;
 import entity.cardtypes.Card;
-import service.Shuffable;
-import service.Splitable;
+import service.ICardService;
+import service.IInitialDeckService;
 
 import java.util.List;
 
-public abstract class FullDeck extends Deck implements Splitable, Shuffable {
+public abstract class FullDeck extends Deck implements IInitialDeckService, ICardService {
 
     private final Player[] players;
     private final int NUMBER_OF_CARDS_PER_PLAYER;
