@@ -1,16 +1,13 @@
 package entity.player;
 
 import entity.deck.player.PlayerDeckInHand;
+import entity.deck.player.PlayerDeckWinCard;
 
 public class Player {
 
-    private final PlayerDeckInHand playerDeckInHand;
+    private PlayerDeckInHand playerDeckInHand;
+    private PlayerDeckWinCard playerDeckWinCard;
 
-    public Player(PlayerDeckInHand playerDeckInHand) {
-        this.playerDeckInHand = playerDeckInHand;
-    }
 
-    public PlayerDeckInHand getPlayerDeckInHand() {
-        return playerDeckInHand;
-    }
+
 }
