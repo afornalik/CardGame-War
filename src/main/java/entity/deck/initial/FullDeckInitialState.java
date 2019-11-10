@@ -1,6 +1,6 @@
-package entity.deck.implementation;
+package entity.deck.initial;
 
-import entity.Player;
+import entity.player.Player;
 import entity.deck.FullDeck;
 
 

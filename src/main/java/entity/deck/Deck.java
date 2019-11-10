@@ -1,7 +1,7 @@
 package entity.deck;
 
 import entity.cardtypes.Card;
-import service.IStandardDeckService;
+import service.deck.IStandardDeckService;
 
 
 import java.util.Collections;

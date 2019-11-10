@@ -1,8 +1,8 @@
 package entity.deck;
 
-import entity.Player;
+import entity.player.Player;
 
-import service.IInitialDeckService;
+import service.deck.IInitialDeckService;
 
 
 

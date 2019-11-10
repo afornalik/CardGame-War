@@ -1,6 +1,6 @@
 package entity.game;
 
-import entity.Player;
+import entity.player.Player;
 import entity.turn.Turn;
 
 import java.util.Map;

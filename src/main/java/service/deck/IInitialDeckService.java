@@ -1,4 +1,4 @@
-package service;
+package service.deck;
 
 public interface IInitialDeckService {
 
