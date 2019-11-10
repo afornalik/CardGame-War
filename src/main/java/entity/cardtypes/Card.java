@@ -1,8 +1,5 @@
 package entity.cardtypes;
 
-import entity.cardtypes.CardColor;
-import entity.cardtypes.CardType;
-
 public class Card {
 
     private final CardColor cardColor;

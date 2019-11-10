@@ -1,6 +1,6 @@
 package service;
 
-public interface ICardService {
+public interface IStandardDeckService {
 
     void shuffleCard();
 }
