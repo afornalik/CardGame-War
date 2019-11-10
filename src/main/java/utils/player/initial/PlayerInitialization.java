@@ -5,10 +5,9 @@ import service.player.IPlayerInitializationService;
 
 public class PlayerInitialization implements IPlayerInitializationService {
 
-    private final int numberOfPlayers;
+    private int numberOfPlayers;
 
-    public PlayerInitialization(int numberOfPlayers){
-        this.numberOfPlayers = numberOfPlayers;
+    public PlayerInitialization(){
     }
 
     @Override
@@ -22,5 +21,10 @@ public class PlayerInitialization implements IPlayerInitializationService {
 
     public int getNumberOfPlayers() {
         return numberOfPlayers;
+    }
+
+    @Override
+    public void setNumberOfPlayers(int numberOfPlayers) {
+        this.numberOfPlayers = numberOfPlayers;
     }
 }

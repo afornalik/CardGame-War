@@ -7,4 +7,6 @@ public interface IPlayerInitializationService {
     Player[] initializePlayers();
 
     int getNumberOfPlayers();
+
+    void setNumberOfPlayers(int numberOfPlayers);
 }

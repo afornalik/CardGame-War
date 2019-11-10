@@ -18,10 +18,12 @@ public class FullDeckInitialization implements IDeckInitializationService {
     private final IPlayerInitializationService iPlayerInitializationService;
     private FullDeck fullDeck;
     private final int NUMBER_OF_PLAYERS;
+    private int NUMBER_OF_CARDS_PER_PLAYER;
 
     public FullDeckInitialization(IPlayerInitializationService iPlayerInitializationService) {
         this.iPlayerInitializationService = iPlayerInitializationService;
         this.NUMBER_OF_PLAYERS = iPlayerInitializationService.getNumberOfPlayers();
+
     }
 
 
@@ -34,6 +36,7 @@ public class FullDeckInitialization implements IDeckInitializationService {
                 cards.add(new Card(cardColor, cardType));
             }
         }
+        NUMBER_OF_CARDS_PER_PLAYER = cards.size()/NUMBER_OF_PLAYERS;
         fullDeck.setDeckOfCards(cards);
         fullDeck.shuffleCard();
     }
@@ -42,7 +45,8 @@ public class FullDeckInitialization implements IDeckInitializationService {
     public PlayerDeckInHand[] splitDeckAmongPlayers() {
         PlayerDeckInHand[] playerDeckInHands = new PlayerDeckInHand[NUMBER_OF_PLAYERS];
         for(int i = 0 ; i< NUMBER_OF_PLAYERS; i++){
-            List<Card> playerCardList = new ArrayList<>(fullDeck.getDeckOfCards().subList(i * NUMBER_OF_PLAYERS, (i++) * NUMBER_OF_PLAYERS));
+            List<Card> playerCardList = new ArrayList<>(fullDeck.getDeckOfCards().subList(i * NUMBER_OF_CARDS_PER_PLAYER, (i = i + 1) * NUMBER_OF_CARDS_PER_PLAYER));
+            i--;
             playerDeckInHands[i] = new PlayerDeckInHand();
             playerDeckInHands[i].setDeckOfCards(playerCardList);
         }

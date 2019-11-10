@@ -12,4 +12,12 @@ public class Card {
         this.cardColor = cardColor;
         this.cardType = cardType;
     }
+
+    public CardColor getCardColor() {
+        return cardColor;
+    }
+
+    public CardType getCardType() {
+        return cardType;
+    }
 }

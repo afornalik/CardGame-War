@@ -9,26 +9,23 @@ import service.player.IPlayerInitializationService;
 import utils.deck.player.PlayerDeckInHand;
 import utils.game.GameReady;
 import view.View;
-import view.ViewFactory;
-import view.ViewOption;
+
 
 public class GameInitialization implements IGameInitializationService {
 
     private final IDeckInitializationService iDeckInitializationService;
     private final IPlayerInitializationService iPlayerInitializationService;
-    private final View view;
 
-    public GameInitialization(IDeckInitializationService iDeckInitializationService, IPlayerInitializationService iPlayerInitializationService, View view) {
+
+    public GameInitialization(IDeckInitializationService iDeckInitializationService, IPlayerInitializationService iPlayerInitializationService) {
         this.iDeckInitializationService = iDeckInitializationService;
         this.iPlayerInitializationService = iPlayerInitializationService;
-        this.view = view;
+
     }
 
 
     @Override
     public GameReady initializeGame() {
-        view.writeGreeting();
-        view.writeRules();
 
         iDeckInitializationService.initializeDeckOfCards();
         PlayerDeckInHand[] playerDeckInHands = iDeckInitializationService.splitDeckAmongPlayers();
@@ -36,7 +33,6 @@ public class GameInitialization implements IGameInitializationService {
         for(int i = 0 ; i < iPlayerInitializationService.getNumberOfPlayers(); i++){
             players[i].setPlayerDeckInHand(playerDeckInHands[i]);
         }
-        GameReady gameReady = new GameReady(view,players);
-        return gameReady;
+        return new GameReady(players);
     }
 }

@@ -5,4 +5,6 @@ public interface IUserOutputMesseges {
     void writeGreeting();
 
     void writeRules();
+
+    void writeMessageAfterShuffleTheDeck();
 }

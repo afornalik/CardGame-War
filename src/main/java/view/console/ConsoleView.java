@@ -1,11 +1,13 @@
 package view.console;
 
+import entity.Card;
+import entity.Player;
 import view.View;
 
 import java.util.Scanner;
 
 
-public class ConsoleView extends View  {
+public class ConsoleView extends View {
 
     private Scanner inputData = new Scanner(System.in);
 
@@ -26,8 +28,28 @@ public class ConsoleView extends View  {
     }
 
     @Override
+    public void writeMessageAfterShuffleTheDeck() {
+        System.out.println("\n\tNow card will be shuffled and deal among players ");
+        System.out.println("\tpress button ");
+        inputData.nextLine();
+        inputData.nextLine();
+    }
+
+    @Override
     public int setupNumbersOfPlayers() {
-        System.out.println("\n\tSetup number of players (2-4) : ");
+        System.out.print("\n\tSetup number of players (2-4) : ");
         return inputData.nextInt();
+    }
+
+    @Override
+    public void printAllUserCardsInColumn(Player[] players) {
+        for (int i = 0; i < players[0].getPlayerDeckInHand().getDeckOfCards().size(); i++) {
+            for (Player player : players) {
+                Card card = player.getPlayerDeckInHand().getDeckOfCards().get(i);
+                System.out.printf("   | %3d %5s %10s |   ", ++i, card.getCardType(), card.getCardColor());
+                i--;
+            }
+            System.out.println();
+        }
     }
 }
