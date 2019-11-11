@@ -21,6 +21,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
+                    <finalName>War-CardGame</finalName>
                     <archive>
                         <manifest>
                             <mainClass>starter.AppMain</mainClass>
