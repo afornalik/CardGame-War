@@ -8,9 +8,9 @@ public abstract class Game<T extends Turn> {
 
     private final Player[] players;
 
-    private Map<Integer, T > gameProgress;
+    private Map<Integer, T> gameProgress;
 
-    protected Game( Player[] players) {
+    protected Game(Player[] players) {
 
         this.players = players;
     }

@@ -31,4 +31,12 @@ public class Player {
     public void setPlayerDeckWinCard(PlayerDeckWinCard playerDeckWinCard) {
         this.playerDeckWinCard = playerDeckWinCard;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "playerDeckInHand=" + playerDeckInHand +
+                ", playerDeckWinCard=" + playerDeckWinCard +
+                '}';
+    }
 }

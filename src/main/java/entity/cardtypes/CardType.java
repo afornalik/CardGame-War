@@ -1,6 +1,6 @@
 package entity.cardtypes;
 
-public enum CardType  {
+public enum CardType {
 
     TWO(2),
     THREE(3),

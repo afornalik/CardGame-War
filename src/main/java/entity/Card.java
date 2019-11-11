@@ -21,5 +21,11 @@ public class Card {
         return cardType;
     }
 
-
+    @Override
+    public String toString() {
+        return "Card{" +
+                "cardColor=" + cardColor +
+                ", cardType=" + cardType +
+                '}';
+    }
 }

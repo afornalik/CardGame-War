@@ -5,7 +5,10 @@ import service.deck.IDeckInitializationService;
 import service.game.IGameInitializationService;
 import service.player.IPlayerInitializationService;
 import utils.deck.player.PlayerDeckInHand;
+import utils.deck.player.PlayerDeckWinCard;
 import utils.game.GameReady;
+
+import java.util.ArrayList;
 
 
 public class GameInitialization implements IGameInitializationService {
@@ -26,8 +29,11 @@ public class GameInitialization implements IGameInitializationService {
         iDeckInitializationService.initializeDeckOfCards();
         PlayerDeckInHand[] playerDeckInHands = iDeckInitializationService.splitDeckAmongPlayers();
         Player[] players = iPlayerInitializationService.initializePlayers();
-        for(int i = 0 ; i < iPlayerInitializationService.getNumberOfPlayers(); i++){
+        for (int i = 0; i < iPlayerInitializationService.getNumberOfPlayers(); i++) {
             players[i].setPlayerDeckInHand(playerDeckInHands[i]);
+            PlayerDeckWinCard playerDeckWinCard = new PlayerDeckWinCard();
+            playerDeckWinCard.setDeckOfCards(new ArrayList<>());
+            players[i].setPlayerDeckWinCard(playerDeckWinCard);
         }
         return new GameReady(players);
     }

@@ -4,7 +4,7 @@ import utils.deck.player.PlayerDeckInHand;
 
 public interface IDeckInitializationService {
 
-   void initializeDeckOfCards();
+    void initializeDeckOfCards();
 
-   PlayerDeckInHand[] splitDeckAmongPlayers();
+    PlayerDeckInHand[] splitDeckAmongPlayers();
 }

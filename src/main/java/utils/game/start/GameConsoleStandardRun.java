@@ -4,10 +4,12 @@ import entity.Turn;
 import service.deck.IDeckInitializationService;
 import service.game.IGameStandardService;
 import service.player.IPlayerInitializationService;
+import service.skirmish.ISkirmishStandardService;
 import utils.deck.initial.FullDeckInitialization;
 import utils.game.GameReady;
 import utils.game.initial.GameInitialization;
 import utils.player.initial.PlayerInitialization;
+import utils.skirmish.SkirmishStandardService;
 import utils.turn.TurnStandard;
 import view.View;
 import view.ViewFactory;
@@ -40,16 +42,17 @@ public class GameConsoleStandardRun implements IGameStandardService {
     public void nextTurn() {
         view.printAllUserCardsInColumn(gameReady.getPlayers());
 
-        Turn turn = new TurnStandard(gameReady.getPlayers());
+        ISkirmishStandardService iSkirmishStandardService = new SkirmishStandardService();
+        Turn turn = new TurnStandard(gameReady.getPlayers(),iSkirmishStandardService);
         this.nextTurnRecursive(turn);
 
     }
 
-    private Turn nextTurnRecursive(Turn previousTurn){
-        if(previousTurn.getPlayersBeforeTurn()[0].getPlayerDeckInHand().getDeckOfCards().size()==0){
+    private Turn nextTurnRecursive(Turn previousTurn) {
+        if (previousTurn.getPlayersBeforeTurn()[0].getPlayerDeckInHand().getDeckOfCards().size() == 0) {
             return null;
         }
-        Turn turn = new TurnStandard(previousTurn.getPlayersBeforeTurn());
+        Turn turn = new TurnStandard(previousTurn.getPlayersBeforeTurn(),previousTurn.getiSkirmishStandardService());
         turn.doTurn();
         return this.nextTurnRecursive(turn);
     }

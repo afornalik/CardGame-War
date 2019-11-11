@@ -9,4 +9,6 @@ public class SkirmishStandard extends Skirmish {
     public SkirmishStandard(Card card, Player player) {
         super(card, player);
     }
+
+
 }

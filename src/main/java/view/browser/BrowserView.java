@@ -3,7 +3,7 @@ package view.browser;
 import entity.Player;
 import view.View;
 
-public class BrowserView extends View  {
+public class BrowserView extends View {
 
 
     @Override

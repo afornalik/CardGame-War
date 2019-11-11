@@ -1,5 +1,6 @@
 package entity;
 
+
 public abstract class Skirmish {
 
     private final Card card;
@@ -16,5 +17,13 @@ public abstract class Skirmish {
 
     public Player getPlayer() {
         return player;
+    }
+
+    @Override
+    public String toString() {
+        return "Skirmish{" +
+                "card=" + card +
+                ", player=" + player +
+                '}';
     }
 }

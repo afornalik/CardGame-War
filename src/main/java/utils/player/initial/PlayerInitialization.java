@@ -7,13 +7,13 @@ public class PlayerInitialization implements IPlayerInitializationService {
 
     private int numberOfPlayers;
 
-    public PlayerInitialization(){
+    public PlayerInitialization() {
     }
 
     @Override
     public Player[] initializePlayers() {
         Player[] players = new Player[numberOfPlayers];
-        for(int i = 0 ; i< numberOfPlayers ; i++){
+        for (int i = 0; i < numberOfPlayers; i++) {
             players[i] = new Player();
         }
         return players;

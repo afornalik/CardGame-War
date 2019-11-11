@@ -25,6 +25,6 @@ public abstract class Deck implements IDeckStandardService {
 
     @Override
     public Card takeCard() {
-        return deckOfCards.remove(deckOfCards.size()-1);
+        return deckOfCards.remove(deckOfCards.size() - 1);
     }
 }
