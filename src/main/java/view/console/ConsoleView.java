@@ -2,9 +2,11 @@ package view.console;
 
 import entity.Card;
 import entity.Player;
+import entity.Turn;
 import view.View;
-
+import java.util.Map;
 import java.util.Scanner;
+
 
 
 public class ConsoleView extends View {
@@ -52,4 +54,12 @@ public class ConsoleView extends View {
             System.out.println();
         }
     }
+
+    @Override
+    public void printTurnProgress(Map<Integer,Turn> gameTurns) {
+        for (Map.Entry<Integer, Turn> gameTurn : gameTurns.entrySet()) {
+            System.out.println("\t" + gameTurn.getKey() + "\t" + gameTurn.getValue().getWinner().getPlayerDeckWinCard());
+        }
+    }
+
 }

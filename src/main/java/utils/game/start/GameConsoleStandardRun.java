@@ -15,12 +15,15 @@ import view.View;
 import view.ViewFactory;
 import view.ViewOption;
 
+import java.util.HashMap;
+
 public class GameConsoleStandardRun implements IGameStandardService {
 
     private final View view = new ViewFactory().createView(ViewOption.CONSOLE);
     private IPlayerInitializationService iPlayerInitializationService;
     private IDeckInitializationService iDeckInitializationService;
     private GameReady gameReady;
+    private int turnNumber =1;
 
 
     @Override
@@ -34,7 +37,7 @@ public class GameConsoleStandardRun implements IGameStandardService {
         iDeckInitializationService = new FullDeckInitialization(iPlayerInitializationService);
 
         gameReady = new GameInitialization(iDeckInitializationService, iPlayerInitializationService).initializeGame();
-
+        gameReady.setGameProgress(new HashMap<Integer,Turn>());
         view.writeMessageAfterShuffleTheDeck();
     }
 
@@ -46,12 +49,16 @@ public class GameConsoleStandardRun implements IGameStandardService {
         Turn turn = new TurnStandard(gameReady.getPlayers(),iSkirmishStandardService);
         this.nextTurnRecursive(turn);
 
+        view.printTurnProgress(gameReady.getGameProgress());
+
     }
 
     private Turn nextTurnRecursive(Turn previousTurn) {
         if (previousTurn.getPlayersBeforeTurn()[0].getPlayerDeckInHand().getDeckOfCards().size() == 0) {
             return null;
         }
+        gameReady.getGameProgress().put(turnNumber,previousTurn);
+        turnNumber++;
         Turn turn = new TurnStandard(previousTurn.getPlayersBeforeTurn(),previousTurn.getiSkirmishStandardService());
         turn.doTurn();
         return this.nextTurnRecursive(turn);

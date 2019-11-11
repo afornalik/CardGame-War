@@ -3,12 +3,12 @@ package entity;
 
 import java.util.Map;
 
-public abstract class Game<T extends Turn> {
+public abstract class Game {
 
 
     private final Player[] players;
 
-    private Map<Integer, T> gameProgress;
+    private Map<Integer, Turn> gameProgress;
 
     protected Game(Player[] players) {
 
@@ -20,11 +20,11 @@ public abstract class Game<T extends Turn> {
         return players;
     }
 
-    public Map<Integer, T> getGameProgress() {
+    public Map<Integer, Turn> getGameProgress() {
         return gameProgress;
     }
 
-    public void setGameProgress(Map<Integer, T> gameProgress) {
+    public void setGameProgress(Map<Integer, Turn> gameProgress) {
         this.gameProgress = gameProgress;
     }
 }

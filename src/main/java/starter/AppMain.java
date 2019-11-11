@@ -1,3 +1,5 @@
+package starter;
+
 import utils.game.start.GameConsoleStandardRun;
 
 public class AppMain {

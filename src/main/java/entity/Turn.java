@@ -7,7 +7,7 @@ public abstract class Turn implements ITurnProgressService {
 
     private final ISkirmishStandardService iSkirmishStandardService;
     private final Player[] playersBeforeTurn;
-    private Player[] playersAfterTurn;
+    private Player winner;
 
     protected Turn(ISkirmishStandardService iSkirmishStandardService, Player[] playersBeforeTurn) {
         this.iSkirmishStandardService = iSkirmishStandardService;
@@ -23,11 +23,13 @@ public abstract class Turn implements ITurnProgressService {
         return playersBeforeTurn;
     }
 
-    public Player[] getPlayersAfterTurn() {
-        return playersAfterTurn;
+    public Player getWinner() {
+        return winner;
     }
 
-    public void setPlayersAfterTurn(Player[] playersAfterTurn) {
-        this.playersAfterTurn = playersAfterTurn;
+    public void setWinner(Player winner) {
+        this.winner = winner;
     }
+
+
 }

@@ -11,7 +11,6 @@ import utils.skirmish.SkirmishStandard;
 public class TurnStandard extends Turn {
 
 
-
     public TurnStandard(Player[] playersBeforeTurn, ISkirmishStandardService iSkirmishStandardService) {
         super(iSkirmishStandardService, playersBeforeTurn);
     }
@@ -28,22 +27,7 @@ public class TurnStandard extends Turn {
         }
 
         Skirmish skirmish = super.getiSkirmishStandardService().receiveWinner(skirmishes);
+        super.setWinner(skirmish.getPlayer());
 
-        for(int i = 0 ; i < getPlayersBeforeTurn().length; i++){
-            if(skirmishes[i].getPlayer() == skirmish.getPlayer()){
-                System.out.println(skirmish);
-            }
-        }
-
-        //super.setPlayersAfterTurn();
-        super.getPlayersAfterTurn();
-
-    }
-
-
-
-    @Override
-    public Player showWinner() {
-        return null;
     }
 }

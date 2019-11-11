@@ -3,6 +3,8 @@ package view.browser;
 import entity.Player;
 import view.View;
 
+import java.util.Map;
+
 public class BrowserView extends View {
 
 
@@ -26,6 +28,11 @@ public class BrowserView extends View {
 
     @Override
     public void printAllUserCardsInColumn(Player[] players) {
+
+    }
+
+    @Override
+    public void printTurnProgress(Map gameTurns) {
 
     }
 }
