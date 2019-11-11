@@ -1,14 +1,11 @@
 package utils.game.initial;
 
-import entity.Deck;
-import entity.Game;
 import entity.Player;
 import service.deck.IDeckInitializationService;
 import service.game.IGameInitializationService;
 import service.player.IPlayerInitializationService;
 import utils.deck.player.PlayerDeckInHand;
 import utils.game.GameReady;
-import view.View;
 
 
 public class GameInitialization implements IGameInitializationService {
@@ -20,7 +17,6 @@ public class GameInitialization implements IGameInitializationService {
     public GameInitialization(IDeckInitializationService iDeckInitializationService, IPlayerInitializationService iPlayerInitializationService) {
         this.iDeckInitializationService = iDeckInitializationService;
         this.iPlayerInitializationService = iPlayerInitializationService;
-
     }
 
 

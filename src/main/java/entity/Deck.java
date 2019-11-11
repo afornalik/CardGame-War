@@ -22,4 +22,9 @@ public abstract class Deck implements IDeckStandardService {
     public void shuffleCard() {
         Collections.shuffle(deckOfCards);
     }
+
+    @Override
+    public Card takeCard() {
+        return deckOfCards.remove(deckOfCards.size()-1);
+    }
 }

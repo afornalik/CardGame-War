@@ -20,4 +20,11 @@ public abstract class Game<T extends Turn> {
         return players;
     }
 
+    public Map<Integer, T> getGameProgress() {
+        return gameProgress;
+    }
+
+    public void setGameProgress(Map<Integer, T> gameProgress) {
+        this.gameProgress = gameProgress;
+    }
 }
