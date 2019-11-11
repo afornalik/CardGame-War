@@ -57,9 +57,15 @@ public class ConsoleView extends View {
 
     @Override
     public void printTurnProgress(Map<Integer,Turn> gameTurns) {
+        System.out.println("\n\t");
         for (Map.Entry<Integer, Turn> gameTurn : gameTurns.entrySet()) {
-            System.out.println("\t" + gameTurn.getKey() + "\t" + gameTurn.getValue().getWinner().getPlayerDeckWinCard());
+            System.out.println("\tTurn number :  " + gameTurn.getKey() + "\t win : " + gameTurn.getValue().getWinner().getPlayerName());
         }
+    }
+
+    @Override
+    public void printWinner(Player player) {
+
     }
 
 }

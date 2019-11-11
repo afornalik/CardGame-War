@@ -32,6 +32,11 @@ public class BrowserView extends View {
     }
 
     @Override
+    public void printWinner(Player player) {
+
+    }
+
+    @Override
     public void printTurnProgress(Map gameTurns) {
 
     }

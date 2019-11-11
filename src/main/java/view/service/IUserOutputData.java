@@ -10,4 +10,6 @@ public interface IUserOutputData {
     void printAllUserCardsInColumn(Player[] players);
 
     void printTurnProgress(Map<Integer, Turn> gameTurns);
+
+    void printWinner(Player player);
 }
