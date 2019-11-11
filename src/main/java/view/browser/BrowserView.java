@@ -27,6 +27,11 @@ public class BrowserView extends View {
     }
 
     @Override
+    public String setupNextGame() {
+        return null;
+    }
+
+    @Override
     public void printAllUserCardsInColumn(Player[] players) {
 
     }

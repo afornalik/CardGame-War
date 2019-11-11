@@ -61,6 +61,12 @@ public class ConsoleView extends View {
     }
 
     @Override
+    public String setupNextGame() {
+        System.out.println("\n\tPlay again ? (y/n) : ");
+        return inputData.next();
+    }
+
+    @Override
     public void printAllUserCardsInColumn(Player[] players) {
         for (int i = 0; i < players[0].getPlayerDeckInHand().getDeckOfCards().size(); i++) {
             for (Player player : players) {
@@ -87,8 +93,6 @@ public class ConsoleView extends View {
     @Override
     public void printWinner(Player player) {
         System.out.println("\tWinner of the game is : "+ player.getPlayerName());
-        System.out.println("\n\tpress button ");
-        inputData.nextLine();
     }
 
 }

@@ -8,4 +8,6 @@ public interface IGameStandardService {
     void makeAllTurn();
 
     void finish();
+
+    String playAgain();
 }

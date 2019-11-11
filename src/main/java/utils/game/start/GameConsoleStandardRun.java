@@ -26,11 +26,12 @@ public class GameConsoleStandardRun implements IGameStandardService {
     private IPlayerInitializationService iPlayerInitializationService;
     private IDeckInitializationService iDeckInitializationService;
     private GameReady gameReady;
-    private int turnNumber =1;
+    private int turnNumber;
 
 
     @Override
     public void begin() {
+        turnNumber = 1;
         view.writeGreeting();
         view.writeRules();
 
@@ -46,7 +47,7 @@ public class GameConsoleStandardRun implements IGameStandardService {
         iDeckInitializationService = new FullDeckInitialization(iPlayerInitializationService);
 
         gameReady = new GameInitialization(iDeckInitializationService, iPlayerInitializationService).initializeGame();
-        gameReady.setGameProgress(new HashMap<Integer,Turn>());
+        gameReady.setGameProgress(new HashMap<>());
         view.writeMessageAfterShuffleTheDeck();
     }
 
@@ -64,9 +65,16 @@ public class GameConsoleStandardRun implements IGameStandardService {
 
     @Override
     public void finish() {
-        Turn lastTurn = gameReady.getGameProgress().get(gameReady.getGameProgress().size());
-        Player[] players = lastTurn.getPlayersBeforeTurn();
-        view.printWinner(Arrays.stream(players).max(Comparator.comparingInt(value -> value.getPlayerDeckWinCard().getDeckOfCards().size())).get());
+        Player[] players = gameReady.getGameProgress().get(gameReady.getGameProgress().size()).getPlayersBeforeTurn();
+        view.printWinner(Arrays
+                .stream(players)
+                .max(Comparator.comparingInt(value -> value.getPlayerDeckWinCard().getDeckOfCards().size()))
+                .get());
+    }
+
+    @Override
+    public String playAgain() {
+        return view.setupNextGame();
     }
 
     private Turn nextTurnRecursive(Turn previousTurn) {

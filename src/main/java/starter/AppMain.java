@@ -6,9 +6,10 @@ public class AppMain {
 
     public static void main(String[] args) {
         GameConsoleStandardRun gameConsoleStandardRun = new GameConsoleStandardRun();
-
-        gameConsoleStandardRun.begin();
-        gameConsoleStandardRun.makeAllTurn();
-        gameConsoleStandardRun.finish();
+        do {
+            gameConsoleStandardRun.begin();
+            gameConsoleStandardRun.makeAllTurn();
+            gameConsoleStandardRun.finish();
+        }while (gameConsoleStandardRun.playAgain().toUpperCase().equals("Y"));
     }
 }
