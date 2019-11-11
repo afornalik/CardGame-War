@@ -7,13 +7,20 @@ public class Player {
 
     private PlayerDeckInHand playerDeckInHand;
     private PlayerDeckWinCard playerDeckWinCard;
+    private final String playerName;
 
-    public Player(PlayerDeckInHand playerDeckInHand, PlayerDeckWinCard playerDeckWinCard) {
+    public Player(PlayerDeckInHand playerDeckInHand, PlayerDeckWinCard playerDeckWinCard, String playerName) {
         this.playerDeckInHand = playerDeckInHand;
         this.playerDeckWinCard = playerDeckWinCard;
+        this.playerName = playerName;
     }
 
-    public Player() {
+    public Player(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public String getPlayerName() {
+        return playerName;
     }
 
     public PlayerDeckInHand getPlayerDeckInHand() {

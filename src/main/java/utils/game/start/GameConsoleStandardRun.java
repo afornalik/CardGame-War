@@ -57,10 +57,10 @@ public class GameConsoleStandardRun implements IGameStandardService {
         if (previousTurn.getPlayersBeforeTurn()[0].getPlayerDeckInHand().getDeckOfCards().size() == 0) {
             return null;
         }
-        gameReady.getGameProgress().put(turnNumber,previousTurn);
-        turnNumber++;
         Turn turn = new TurnStandard(previousTurn.getPlayersBeforeTurn(),previousTurn.getiSkirmishStandardService());
         turn.doTurn();
+        gameReady.getGameProgress().put(turnNumber,turn);
+        turnNumber++;
         return this.nextTurnRecursive(turn);
     }
 }

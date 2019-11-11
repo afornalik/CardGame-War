@@ -14,7 +14,8 @@ public class PlayerInitialization implements IPlayerInitializationService {
     public Player[] initializePlayers() {
         Player[] players = new Player[numberOfPlayers];
         for (int i = 0; i < numberOfPlayers; i++) {
-            players[i] = new Player();
+            players[i] = new Player("Player "+(i=i+1));
+            i--;
         }
         return players;
     }
