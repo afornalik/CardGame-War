@@ -8,6 +8,7 @@ public class AppMain {
         GameConsoleStandardRun gameConsoleStandardRun = new GameConsoleStandardRun();
 
         gameConsoleStandardRun.begin();
-        gameConsoleStandardRun.nextTurn();
+        gameConsoleStandardRun.makeAllTurn();
+        gameConsoleStandardRun.finish();
     }
 }

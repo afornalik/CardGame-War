@@ -1,5 +1,6 @@
 package utils.game.start;
 
+import entity.Player;
 import entity.Turn;
 import service.deck.IDeckInitializationService;
 import service.game.IGameStandardService;
@@ -15,6 +16,8 @@ import view.View;
 import view.ViewFactory;
 import view.ViewOption;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class GameConsoleStandardRun implements IGameStandardService {
@@ -32,7 +35,13 @@ public class GameConsoleStandardRun implements IGameStandardService {
         view.writeRules();
 
         iPlayerInitializationService = new PlayerInitialization();
-        iPlayerInitializationService.setNumberOfPlayers(view.setupNumbersOfPlayers());
+
+        int numberOfPlayers;
+        do{
+            numberOfPlayers = view.setupNumbersOfPlayers();
+        }while(numberOfPlayers == 0);
+
+        iPlayerInitializationService.setNumberOfPlayers(numberOfPlayers);
 
         iDeckInitializationService = new FullDeckInitialization(iPlayerInitializationService);
 
@@ -42,7 +51,7 @@ public class GameConsoleStandardRun implements IGameStandardService {
     }
 
     @Override
-    public void nextTurn() {
+    public void makeAllTurn() {
         view.printAllUserCardsInColumn(gameReady.getPlayers());
 
         ISkirmishStandardService iSkirmishStandardService = new SkirmishStandardService();
@@ -51,6 +60,13 @@ public class GameConsoleStandardRun implements IGameStandardService {
 
         view.printTurnProgress(gameReady.getGameProgress());
 
+    }
+
+    @Override
+    public void finish() {
+        Turn lastTurn = gameReady.getGameProgress().get(gameReady.getGameProgress().size());
+        Player[] players = lastTurn.getPlayersBeforeTurn();
+        view.printWinner(Arrays.stream(players).max(Comparator.comparingInt(value -> value.getPlayerDeckWinCard().getDeckOfCards().size())).get());
     }
 
     private Turn nextTurnRecursive(Turn previousTurn) {

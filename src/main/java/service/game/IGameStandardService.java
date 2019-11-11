@@ -5,5 +5,7 @@ public interface IGameStandardService {
 
     void begin();
 
-    void nextTurn();
+    void makeAllTurn();
+
+    void finish();
 }

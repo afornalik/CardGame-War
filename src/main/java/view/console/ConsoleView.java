@@ -4,6 +4,9 @@ import entity.Card;
 import entity.Player;
 import entity.Turn;
 import view.View;
+import view.exception.InputPlayerNumberException;
+
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -32,7 +35,7 @@ public class ConsoleView extends View {
     @Override
     public void writeMessageAfterShuffleTheDeck() {
         System.out.println("\n\tNow card will be shuffled and deal among players ");
-        System.out.println("\tpress button ");
+        System.out.println("\n\tpress button ");
         inputData.nextLine();
         inputData.nextLine();
     }
@@ -40,7 +43,21 @@ public class ConsoleView extends View {
     @Override
     public int setupNumbersOfPlayers() {
         System.out.print("\n\tSetup number of players (2-4) : ");
-        return inputData.nextInt();
+        int numberOfPlayers;
+        try {
+             numberOfPlayers = inputData.nextInt();
+             if(numberOfPlayers <2 || numberOfPlayers >4){
+                 throw  new InputPlayerNumberException();
+             }
+        }catch (InputMismatchException e){
+            System.out.println("\n\tInsert number.");
+            numberOfPlayers = 0;
+            inputData.nextLine();
+        }catch (InputPlayerNumberException e){
+            System.out.println("\n\tNumber of players should be between 2 and 4.");
+            numberOfPlayers = 0;
+        }
+        return numberOfPlayers;
     }
 
     @Override
@@ -53,19 +70,25 @@ public class ConsoleView extends View {
             }
             System.out.println();
         }
+        System.out.println("\n\tpress button ");
+        inputData.nextLine();
     }
 
     @Override
     public void printTurnProgress(Map<Integer,Turn> gameTurns) {
-        System.out.println("\n\t");
+        System.out.println("\n\tProgress of the game");
         for (Map.Entry<Integer, Turn> gameTurn : gameTurns.entrySet()) {
-            System.out.println("\tTurn number :  " + gameTurn.getKey() + "\t win : " + gameTurn.getValue().getWinner().getPlayerName());
+            System.out.println("\tTurn :  " + gameTurn.getKey() + "\t win : " + gameTurn.getValue().getWinner().getPlayerName());
         }
+        System.out.println("\n\tpress button ");
+        inputData.nextLine();
     }
 
     @Override
     public void printWinner(Player player) {
-
+        System.out.println("\tWinner of the game is : "+ player.getPlayerName());
+        System.out.println("\n\tpress button ");
+        inputData.nextLine();
     }
 
 }
